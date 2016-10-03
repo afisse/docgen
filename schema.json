@@ -1,0 +1,6 @@
+{"firstname":{"type":"word","path":"firstnames.txt"},
+ "lastname":{"type":"word","path":"lastnames.txt"},
+ "number":{"type":"integer","length":3},
+ "street":{"type":"word","path":"presidents.txt"},
+ "city":{"type":"word","path":"cities.txt"},
+ "presentation":{"type":"text", "path":"common_words_200.txt", "length":100}}

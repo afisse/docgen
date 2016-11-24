@@ -114,6 +114,14 @@ doc = []
 for i in range(0,number):
     obj = genObject (schema) 
     doc.append(obj)
+    time_after = int(math.floor(time.time() * 1000))
+    s = (time_after - time_before) / float(1000)
+    #round_s = (round (100 * s)) / 100
+    speed = math.floor((number / s) * 100) / 100
+    sys.stdout.write("\r" + str(intWithCommas(i+1)) + " documents generated in " + str(s) + " seconds (speed = " + str_of_float(speed) + " doc/s)   ")
+    sys.stdout.flush()
+
+print
 
 time_after = int(math.floor(time.time() * 1000))
 
@@ -129,11 +137,8 @@ output.write("\n")
 output.close()
 time_after2 = int(math.floor(time.time() * 1000))
 
-s = (time_after - time_before) / float(1000)
-round_s = (round (100 * s)) / 100
+
 s2 = (time_after2 - time_before2) / float(1000)
 round_s2 = (round (100 * s2)) / 100
-speed = math.floor((number / s) * 100) / 100
 speed2 = math.floor((file_size / s2) * 100) / 100
-print str(intWithCommas(number)) + " documents generated in " + str(s) + " seconds (speed = " + str_of_float(speed) + " doc/s)"
 print str(sizeof_fmt(file_size)) + " written on disk in " + str(s2) + " seconds (speed = " + str(sizeof_fmt(speed2)) + "/s)"
